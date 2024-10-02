@@ -23,10 +23,8 @@ public class ECommerceFourHybridTest extends BaseTest{
         FormPage formPage = new FormPage(driver);
         formPage.setNameField("Miya");
         formPage.setGender("female");
-        driver.findElement(By.id("android:id/text1")).click();
-        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Colombia\"));"));
-        driver.findElement(By.xpath("//android.widget.TextView[@text='Colombia']")).click();
-        driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+        formPage.setCountrySelect("Colombia");
+        formPage.shopButtonClick();
 
         driver.findElements(By.xpath("//android.widget.TextView[@text='ADD TO CART']")).get(0).click();
         driver.findElements(By.xpath("//android.widget.TextView[@text='ADD TO CART']")).get(0).click();
