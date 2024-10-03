@@ -37,8 +37,9 @@ public class FormPage extends AndroidActions {
     @AndroidFindBy(id = "com.androidsample.generalstore:id/btnLetsShop")
     private WebElement shopButton;
 
-    public void shopButtonClick() {
+    public ProductCatalogue submitForm() {
         shopButton.click();
+        return  new ProductCatalogue(driver);
     }
 
     public void setCountrySelect(String countryName) {
@@ -47,10 +48,6 @@ public class FormPage extends AndroidActions {
         ScrollToText(countryName);
         driver.findElement(By.xpath("//android.widget.TextView[@text='" + countryName + "']")).click();
 
-//        driver.findElement(AppiumBy.androidUIAutomator(
-//                "new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + countryName + "\"));"));
-//
-//        driver.findElement(By.xpath("//android.widget.TextView[@text='" + countryName + "']")).click();
     }
 
     public void setNameField(String name) {
