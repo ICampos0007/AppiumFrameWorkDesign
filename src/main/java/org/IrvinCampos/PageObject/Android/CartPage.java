@@ -74,19 +74,7 @@ public class CartPage extends AndroidActions {
     public String getTerms(){
         return terms.getText();
     }
-//    public void clickAndroidButton1(){
-//        androidButton1.click();
-//    }
-//
-//    public void checkBoxClick() {
-//        checkBox.click();
-//    }
-//
-//    public void proceedButtonClick() throws InterruptedException {
-//        proceedButton.click();
-//        Thread.sleep(2000);
-//    }
-//
+
     public void submitOrder() throws InterruptedException {
         androidButton1.click();
         checkBox.click();

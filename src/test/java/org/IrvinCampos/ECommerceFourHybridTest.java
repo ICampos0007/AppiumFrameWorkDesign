@@ -30,8 +30,9 @@ public class ECommerceFourHybridTest extends BaseTest{
         productCatalogue.addItemToCartByIndex(0);
         CartPage cartPage = productCatalogue.clickCartButton();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.attributeContains(driver.findElement(By.id("com.androidsample.generalstore:id/toolbar_title")),"text","Cart"));
+        WebElement title = driver.findElement(By.id("com.androidsample.generalstore:id/toolbar_title"));
+
+        cartPage.waitForElementToAppear(title);
         double totalSum = cartPage.getProductSum();
         double displayFormattedSum = cartPage.getDisplaySum();
         Assert.assertEquals(totalSum,displayFormattedSum);
