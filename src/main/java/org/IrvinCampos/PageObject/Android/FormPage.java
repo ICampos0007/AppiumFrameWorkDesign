@@ -1,11 +1,14 @@
 package org.IrvinCampos.PageObject.Android;
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 import org.IrvinCampos.PageObject.Android.utils.AndroidActions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -55,8 +58,14 @@ public class FormPage extends AndroidActions {
         driver.hideKeyboard();
     }
 
+    public void setActivity() {
+        Activity activity =  new Activity("com.androidsample.generalstore","com.androidsample.generalstore.MainActivity");
+        ((JavascriptExecutor)driver).executeScript("mobile: startActivity", ImmutableMap.of("intent","com.androidsample.generalstore/com.androidsample.generalstore.MainActivity"));
+
+    }
+
     public void setGender(String gender) {
-        if (gender.contains("female")) {
+        if (gender.contains("female") || gender.contains("Female")) {
             femaleOption.click();
         }
         else

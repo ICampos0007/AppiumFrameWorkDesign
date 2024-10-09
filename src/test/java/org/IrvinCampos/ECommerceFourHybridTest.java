@@ -1,30 +1,25 @@
 
 package org.IrvinCampos;
 
-import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
+import com.google.common.collect.ImmutableMap;
+import io.appium.java_client.android.Activity;
 import org.IrvinCampos.PageObject.Android.CartPage;
-import org.IrvinCampos.PageObject.Android.FormPage;
 import org.IrvinCampos.PageObject.Android.ProductCatalogue;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-import java.util.List;
-import java.util.Set;
 
 public class ECommerceFourHybridTest extends BaseTest{
-    @Test
-    public void FillFormTest() throws InterruptedException {
-        formPage.setNameField("Miya");
-        formPage.setGender("female");
-        formPage.setCountrySelect("Colombia");
+    @Test(dataProvider="getData")
+    public void FillFormTest(String name, String gender, String country) throws InterruptedException {
+        formPage.setNameField(name);
+        formPage.setGender(gender);
+        formPage.setCountrySelect(country);
         ProductCatalogue productCatalogue = formPage.submitForm();
         productCatalogue.addItemToCartByIndex(0);
         productCatalogue.addItemToCartByIndex(0);
@@ -41,5 +36,19 @@ public class ECommerceFourHybridTest extends BaseTest{
         Assert.assertEquals(terms, "Terms Of Conditions");
         cartPage.submitOrder();
 
+    }
+
+    @DataProvider
+    public Object[][] getData() {
+        return new Object[][]{
+                {"Miya","female","Colombia"},
+                {"Cozy","male","Colombia"}
+        };
+
+    }
+    @BeforeMethod(alwaysRun = true)
+    public void preSetup() {
+        //screen to homepage
+        formPage.setActivity();
     }
 }
