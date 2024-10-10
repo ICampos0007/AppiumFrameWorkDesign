@@ -1,11 +1,13 @@
 package org.IrvinCampos;
 
 import com.google.common.collect.ImmutableMap;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.IrvinCampos.PageObject.Android.FormPage;
+import org.IrvinCampos.PageObject.Android.utils.AppiumUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -17,10 +19,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-public class BaseTest {
+public class BaseTest  {
     public AndroidDriver driver;
     public AppiumDriverLocalService service;
     public FormPage formPage;
+
+
     @BeforeClass
     public void configureAppium() throws MalformedURLException {
         service = new AppiumServiceBuilder().withAppiumJS(new File("C://Users//Irvin//AppData//Roaming//npm//node_modules//appium//build//lib//main.js"))

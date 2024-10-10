@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class AppiumUtils {
+public abstract class AppiumUtils {
     AppiumDriver driver;
     public AppiumUtils(AppiumDriver driver) {
         this.driver = driver;

@@ -1,0 +1,15 @@
+[
+  {"Miya","female","Colombia"},
+  {"Cozy","male","Colombia"}
+  {
+    "name": "Miya",
+    "gender": "female",
+    "country": "Colombia"
+  },
+
+  {
+    "name": "Cozy",
+    "gender": "male",
+    "country": "Colombia"
+  }
+]
