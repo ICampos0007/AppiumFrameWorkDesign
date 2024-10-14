@@ -1,4 +1,3 @@
-
 package org.IrvinCampos;
 
 import com.google.common.collect.ImmutableMap;
@@ -13,13 +12,17 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+
 
 public class ECommerceFourHybridTest extends BaseTest{
     @Test(dataProvider="getData")
-    public void FillFormTest(String name, String gender, String country) throws InterruptedException {
-        formPage.setNameField(name);
-        formPage.setGender(gender);
-        formPage.setCountrySelect(country);
+    public void FillFormTest(HashMap<String,String> input) throws InterruptedException {
+        formPage.setNameField(input.get("name"));
+        formPage.setGender(input.get("gender"));
+        formPage.setCountrySelect(input.get("country"));
         ProductCatalogue productCatalogue = formPage.submitForm();
         productCatalogue.addItemToCartByIndex(0);
         productCatalogue.addItemToCartByIndex(0);
@@ -39,14 +42,16 @@ public class ECommerceFourHybridTest extends BaseTest{
     }
 
     @DataProvider
-    public Object[][] getData() {
+    public Object[][] getData() throws IOException {
+        String jsonFilePath = System.getProperty("user.dir") +
+                "/src/test/java/org/IrvinCampos/TestData/eCommerce.json";
+        List<HashMap<String, String>> data = getJsonData(jsonFilePath);
         return new Object[][]{
-                {"Miya","female","Colombia"},
-                {"Cozy","male","Colombia"}
+                {data.get(0)},
+                {data.get(1)}
         };
-
     }
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod(enabled = false)
     public void preSetup() {
         //screen to homepage
         formPage.setActivity();
