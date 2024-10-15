@@ -61,7 +61,6 @@ public class FormPage extends AndroidActions {
     public void setActivity() {
         Activity activity =  new Activity("com.androidsample.generalstore","com.androidsample.generalstore.MainActivity");
         ((JavascriptExecutor)driver).executeScript("mobile: startActivity", ImmutableMap.of("intent","com.androidsample.generalstore/com.androidsample.generalstore.MainActivity"));
-
     }
 
     public void setGender(String gender) {

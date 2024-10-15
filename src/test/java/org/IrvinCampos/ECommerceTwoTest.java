@@ -1,17 +1,15 @@
 package org.IrvinCampos;
 
-import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.Activity;
+import org.IrvinCampos.TestUtils.BaseTest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 
 import org.testng.annotations.Test;
 
 
-public class ECommerceTwoTest extends BaseTest{
+public class ECommerceTwoTest extends BaseTest {
 
     @BeforeMethod
     public void preSetup() {

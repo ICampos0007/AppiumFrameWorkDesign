@@ -1,11 +1,9 @@
 package org.IrvinCampos;
 
-import com.google.common.collect.ImmutableMap;
-import io.appium.java_client.android.Activity;
 import org.IrvinCampos.PageObject.Android.CartPage;
 import org.IrvinCampos.PageObject.Android.ProductCatalogue;
+import org.IrvinCampos.TestUtils.BaseTest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -17,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class ECommerceFourHybridTest extends BaseTest{
+public class ECommerceFourHybridTest extends BaseTest {
     @Test(dataProvider="getData")
     public void FillFormTest(HashMap<String,String> input) throws InterruptedException {
         formPage.setNameField(input.get("name"));
