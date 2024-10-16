@@ -17,6 +17,7 @@
         <selenium-version>4.24.0</selenium-version>
         <commonsIO-version>2.17.0</commonsIO-version>
         <jacksonDatBind-version>2.18.0</jacksonDatBind-version>
+        <extentReport-Version>5.1.2</extentReport-Version>
     </properties>
 
     <dependencies>
@@ -54,6 +55,14 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jacksonDatBind-version}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>${extentReport-Version}</version>
+        </dependency>
+
 
     </dependencies>
 
