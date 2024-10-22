@@ -48,7 +48,7 @@ public class FormPage extends AndroidActions {
     public void setCountrySelect(String countryName) {
         countrySelect.click();
         // Use countryName in the scroll and xpath expressions
-        ScrollToText(countryName);
+        scrollToText(countryName);
         driver.findElement(By.xpath("//android.widget.TextView[@text='" + countryName + "']")).click();
 
     }
@@ -58,9 +58,10 @@ public class FormPage extends AndroidActions {
         driver.hideKeyboard();
     }
 
-    public void setActivity() {
-        Activity activity =  new Activity("com.androidsample.generalstore","com.androidsample.generalstore.MainActivity");
-        ((JavascriptExecutor)driver).executeScript("mobile: startActivity", ImmutableMap.of("intent","com.androidsample.generalstore/com.androidsample.generalstore.MainActivity"));
+    public void setActivity()
+    {
+        Activity activity = new Activity("com.androidsample.generalstore", "com.androidsample.generalstore.MainActivity");
+        ((JavascriptExecutor) driver).executeScript("mobile: startActivity", ImmutableMap.of("intent","com.androidsample.generalstore/com.androidsample.generalstore.MainActivity"));
     }
 
     public void setGender(String gender) {

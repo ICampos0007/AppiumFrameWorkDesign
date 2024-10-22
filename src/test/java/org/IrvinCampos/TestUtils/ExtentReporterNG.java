@@ -6,7 +6,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 public class ExtentReporterNG {
     static ExtentReports extentReports;
     public static ExtentReports getReporterObject() {
-        String path = System.getProperty("user.dir") + "\\reports\\index.html";
+        String path =System.getProperty("user.dir")+"//reports//index.html";
         ExtentSparkReporter extentSparkReporter = new ExtentSparkReporter(path);
         extentSparkReporter.config().setReportName("Web Automation Results");
         extentSparkReporter.config().setDocumentTitle("Test Results");

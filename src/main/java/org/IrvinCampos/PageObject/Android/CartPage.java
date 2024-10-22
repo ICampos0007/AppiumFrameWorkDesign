@@ -53,7 +53,7 @@ public class CartPage extends AndroidActions {
         double totalSum =0;
         for (int i=0; i<productCount; i++) {
             String amountString = productPrices.get(i).getText();
-            Double price = formattedAmount(amountString);
+            Double price = getFormattedAmount(amountString);
             totalSum = totalSum + price;
         }
         return totalSum;
@@ -68,7 +68,7 @@ public class CartPage extends AndroidActions {
     }
 
     public void termButtonLongPress() {
-        LongPressAction(termButton);
+        longPressAction(termButton);
     }
 
     public String getTerms(){

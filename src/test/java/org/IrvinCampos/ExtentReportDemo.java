@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class ExtentReportDemo {
     ExtentReports extentReports;
-    @BeforeTest
+    @BeforeTest(enabled = false)
     public void config() {
         String path = System.getProperty("user.dir") + "\\reports\\index.html";
         ExtentSparkReporter extentSparkReporter = new ExtentSparkReporter(path);
@@ -20,7 +20,7 @@ public class ExtentReportDemo {
         extentReports.attachReporter(extentSparkReporter);
         extentReports.setSystemInfo("Tester","Irvin Campos");
     }
-    @Test
+    @Test(enabled = false)
     public void initialDemo() {
         ExtentTest test = extentReports.createTest("Initial Demo");
         System.setProperty("webdriver.chrome.driver","C://Users//Irvin//Desktop//Selenium-Server//chromedriver.exe");

@@ -28,7 +28,7 @@ public class ECommerceFourHybridTest extends BaseTest {
 
         WebElement title = driver.findElement(By.id("com.androidsample.generalstore:id/toolbar_title"));
 
-        cartPage.waitForElementToAppear(title);
+        cartPage.waitForElementToAppear(title,driver);
         double totalSum = cartPage.getProductSum();
         double displayFormattedSum = cartPage.getDisplaySum();
         Assert.assertEquals(totalSum,displayFormattedSum);

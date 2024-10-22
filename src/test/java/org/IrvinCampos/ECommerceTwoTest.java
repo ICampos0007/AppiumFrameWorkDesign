@@ -14,7 +14,7 @@ public class ECommerceTwoTest extends BaseTest {
     @BeforeMethod
     public void preSetup() {
         //screen to homepage
-        formPage.setActivity();
+//        formPage.setActivity();
     }
     @Test
     public void FillFormFailTest() throws InterruptedException {
@@ -32,7 +32,7 @@ public class ECommerceTwoTest extends BaseTest {
 
     @Test
     public void FillFormPassTest() throws InterruptedException {
-        driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Miya");
+        driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Cozy");
         driver.hideKeyboard();
         driver.findElement(By.id("com.androidsample.generalstore:id/radioFemale")).click();
         driver.findElement(By.id("android:id/text1")).click();
@@ -40,5 +40,4 @@ public class ECommerceTwoTest extends BaseTest {
         driver.findElement(By.xpath("//android.widget.TextView[@text='Colombia']")).click();
         driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
     }
-
 }

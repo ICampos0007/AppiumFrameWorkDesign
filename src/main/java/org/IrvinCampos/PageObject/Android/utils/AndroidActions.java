@@ -9,40 +9,49 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 
 public class AndroidActions extends AppiumUtils{
+
     AndroidDriver driver;
 
-    public AndroidActions(AndroidDriver driver) {
-        super(driver);
+    public AndroidActions(AndroidDriver driver)
+    {
+
         this.driver = driver;
     }
 
-    public void LongPressAction(WebElement ele) {
+    public void longPressAction(WebElement ele)
+    {
         ((JavascriptExecutor)driver).executeScript("mobile: longClickGesture",
-                ImmutableMap.of("elementId",((RemoteWebElement) ele).getId(),
+                ImmutableMap.of("elementId",((RemoteWebElement)ele).getId(),
                         "duration",2000));
     }
 
-    public void ScrollToEndAction() {
-        // No prior knowledge of where to scroll
+
+    public void scrollToEndAction() {
         boolean canScrollMore;
-        do {
+        do
+        {
             canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
                     "left", 100, "top", 100, "width", 200, "height", 200,
                     "direction", "down",
-                    "percent", 1.0
+                    "percent", 3.0
             ));
-        }while (canScrollMore);
+        }while(canScrollMore);
     }
 
-    public void ScrollToText(String text){
-        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" +text + "\"));"));
+    public void scrollToText(String text)
+    {
+
+        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+text+"\"));"));
     }
 
-    public void SwipeAction(WebElement element, String direction, double percent) {
+
+    public void swipeAction(WebElement ele,String direction)
+    {
         ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
-                "elementId", ((RemoteWebElement) element).getId(),
+                "elementId", ((RemoteWebElement)ele).getId(),
+
                 "direction", direction,
-                "percent", percent
+                "percent", 0.75
         ));
     }
 
@@ -54,8 +63,4 @@ public class AndroidActions extends AppiumUtils{
         ));
     }
 
-    public Double formattedAmount(String amount) {
-        Double price = Double.parseDouble(amount.substring(1));
-        return price;
-    }
 }
