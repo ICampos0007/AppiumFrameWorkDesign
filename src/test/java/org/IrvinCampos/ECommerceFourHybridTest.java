@@ -16,7 +16,7 @@ import java.util.List;
 
 
 public class ECommerceFourHybridTest extends BaseTest {
-    @Test(dataProvider="getData")
+    @Test(dataProvider="getData", groups = {"Smoke"})
     public void FillFormTest(HashMap<String,String> input) throws InterruptedException {
         formPage.setNameField(input.get("name"));
         formPage.setGender(input.get("gender"));
