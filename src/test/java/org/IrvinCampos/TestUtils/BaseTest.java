@@ -28,7 +28,8 @@ public class BaseTest extends AppiumUtils {
         properties.load(fileInputStream);
 
         // Read values from properties
-        String ipAddress = properties.getProperty("ipAddress");
+        String ipAddress = System.getProperty("ipAddress") !=null ? System.getProperty("ipAddress") : properties.getProperty("ipAddress");
+//        String ipAddress = properties.getProperty("ipAddress");
         String port = properties.getProperty("port");
         String emulator = properties.getProperty("IrvinEmulator");
 
